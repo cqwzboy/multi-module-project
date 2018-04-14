@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 @Transactional(propagation= Propagation.REQUIRED, rollbackFor=Exception.class)
 public class OrderServiceImpl implements IOrderService {
 
-    @Resource
+//    @Resource
+    @Autowired
     private OrderMapper orderMapper;
     @Autowired
     private RedisClient<Long, OrderEntity> redisClient;
@@ -44,7 +44,7 @@ public class OrderServiceImpl implements IOrderService {
 
         OrderEntity entity = orderMapper.findById(orderId);
 
-        redisClient.set(orderId, entity);
+        System.out.println("id为10的value类型为："+this.redisClient.type(10L).code());
 
         return entity;
     }

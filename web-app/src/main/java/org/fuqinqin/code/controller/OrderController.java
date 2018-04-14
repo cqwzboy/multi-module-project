@@ -23,13 +23,17 @@ public class OrderController extends BaseController{
     @Autowired
     private RedisClient<String, String> redisClient;
 
+
     @RequestMapping(value = "/{orderId}", method = RequestMethod.GET)
     @ResponseBody
     public OrderEntity findById(@PathVariable("orderId") Long orderId){
         OrderEntity orderEntity = orderService.findById(orderId);
         logger.info("orderEntity : "+orderEntity);
 
-        redisClient.set("hello", "world");
+//        redisClient.set("hello_1111", "world");
+
+        System.out.println(redisClient.getExpire("hello_1111"));
+        System.out.println(redisClient.getExpire("hello"));
 
         return orderEntity;
     }

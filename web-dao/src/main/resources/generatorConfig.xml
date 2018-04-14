@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--<properties resource="mybatis-config.properties"/>-->
+
+    <!--学生表（测试）-->
+    <context id="student" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- jdbc连接信息 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost/itaojin"
+                        userId="itaojin"
+                        password="Q12@_h45W">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 生成vo对象(dto & example) -->
+        <javaModelGenerator targetPackage="org.fuqinqin.code.gen.student"
+                            targetProject="F://ideaProjects/test_projects/multi-module-project/web-dao/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <!--<property name="rootClass" value="com.sudao.no3warehouse.base.BaseEntity"/>-->
+        </javaModelGenerator>
+        <!-- 用于定义SQL映射生成器的属性。(xml) -->
+        <sqlMapGenerator targetPackage="org.fuqinqin.code.gen.student"
+                         targetProject="F://ideaProjects/test_projects/multi-module-project/web-dao/src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成DAO的类文件以及配置文件 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.fuqinqin.code.gen.student"
+                             targetProject="F://ideaProjects/test_projects/multi-module-project/web-dao/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="student" domainObjectName="Student" enableDeleteByPrimaryKey="true"
+               enableDeleteByExample="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+    </context>
+</generatorConfiguration>
