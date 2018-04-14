@@ -10,7 +10,7 @@ public interface IOrderService {
 
     int delete(Long orderId);
 
-    OrderEntity getById(Long orderId);
+    OrderEntity findById(Long orderId);
 
     List<OrderEntity> findAll();
 

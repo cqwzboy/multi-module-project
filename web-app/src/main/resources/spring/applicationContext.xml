@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-4.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <!-- class annotation related... start -->
+    <context:component-scan base-package="org.fuqinqin.code"/>
+    <!-- class annotation related... end -->
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+                <value>classpath:redis.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <import resource="spring-redis.xml"/>
+    <import resource="spring-mybatis.xml"/>
+
+    <!-- 配置RedisCacheManager -->
+    <!--<bean id="redisCacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
+        <constructor-arg name="redisOperations" ref="redisTemplate" />
+        <property name="defaultExpiration" value="${redis.expiration}" />
+    </bean>-->
+
+    <!-- 配置RedisCacheConfig -->
+    <!--<bean id="redisCacheConfig" class="com.ssm.utils.RedisCacheConfig">
+        <constructor-arg ref="jedisConnectionFactory" />
+        <constructor-arg ref="redisTemplate" />
+        <constructor-arg ref="redisCacheManager" />
+    </bean>-->
+    <!-- redis config end -->
+</beans>

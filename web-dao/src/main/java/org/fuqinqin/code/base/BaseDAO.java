@@ -26,7 +26,7 @@ public class BaseDAO {
 
 	static {
 		ClassLoader classLoader = BaseDAO.class.getClassLoader();
-		InputStream is = classLoader.getResourceAsStream("jdbc.properties");
+		InputStream is = classLoader.getResourceAsStream("jdbc_2.properties");
 		Properties properties = new Properties();
 		try {
 			properties.load(is);

@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class OrderServlet extends HttpServlet {
 
@@ -20,10 +22,18 @@ public class OrderServlet extends HttpServlet {
             throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
 
-        String orderNo = req.getParameter("orderNo");
+        /*String orderNo = req.getParameter("orderNo");
         Long goodsId = Long.parseLong(req.getParameter("goodsId"));
         String goodsName = req.getParameter("goodsName");
-        Long userId = Long.parseLong(req.getParameter("userId"));
+        Long userId = Long.parseLong(req.getParameter("userId"));*/
+
+        Long time = System.currentTimeMillis();
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        System.out.println("订单编号："+time.hashCode());
+        String orderNo = String.valueOf(time.hashCode());
+        Long goodsId = time;
+        String goodsName = "goodsName"+String.valueOf(time);
+        Long userId = time;
 
         OrderEntity entity = new OrderEntity();
         entity.setOrderNo(orderNo);

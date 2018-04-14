@@ -1,6 +1,8 @@
 package org.fuqinqin.code.order;
 
-public class OrderEntity {
+import java.io.Serializable;
+
+public class OrderEntity implements Serializable{
 
     private Long orderId;
     private String orderNo;

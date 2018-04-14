@@ -1,1 +1,8 @@
+org\fuqinqin\code\kafka\ConsumerMsgTask.class
+org\fuqinqin\code\kafka\ProducerDemo.class
+org\fuqinqin\code\zookeeper\ZookeeperTest.class
 org\fuqinqin\code\App.class
+org\fuqinqin\code\kafka\ConsumerDemo.class
+org\fuqinqin\code\zookeeper\TestWatcher.class
+org\fuqinqin\code\kafka\PartitionerDemo.class
+org\fuqinqin\code\mongodb\MainTest.class
